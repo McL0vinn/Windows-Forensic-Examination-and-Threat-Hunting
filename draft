@@ -1,6 +1,7 @@
 For the bests results "Run as Administrator" through CMD and/or Powershell
 
 Identify Suspicious Processes
+-------------------------------
 
 Command line
 tasklist
@@ -31,6 +32,7 @@ Watch out for:
 
 
 Identifying Suspicious Network Activity
+-----------------------------------------
 
 netstat -abno ( this is pretty much all you need)
 netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
@@ -46,6 +48,7 @@ Watch out for:
 
 
 Identifying Suspicious Services
+----------------------------------
 
 services.msc = spawns the services control panel GUI . shows various services and their Description, Status, Startup Type, Log on as. shows ALL services (running/not running)
 net start = shows a list of ONLY running services.
@@ -58,6 +61,7 @@ Watch out for:
 
 
 Identify Suspicious Registry ASEPs/Autostart Folders
+------------------------------------------------------
 
 Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs)
 
@@ -72,8 +76,8 @@ These registry keys are responsible for executing programs when a system boots u
 Autostart folders associated with users.These programs are automatically invoked each time the given user logs on to the system and are sometimes altered by malware
 
 C:\> dir \s \b "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup = lists the contents of a user's autostart folder
-C:\> msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
-C:\> wmic startup list full = displays startup items
+C:\> start msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
+C:\> wmic startup list full = displays autostart programs
 Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
 
 
@@ -94,16 +98,61 @@ Watch out for:
 4)
 
 
+Identify Suspicious Account Activity
+--------------------------------------
+
+c:\> lusrmgr.msc = spawns a GUI which can be used to check the users and groups defined on the machine
+C:\> net user = displays a list of users
+C:\>net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
+
+
+
+Watch out for:
+
+1)
+2)
+3)
+4)
+
+
+Identify Suspicious Scheduled Tasks
+------------------------------------
+
+C:\> schtasks = shows scheduled tasks and details about them such as Folder, Task Name, Next Run Time and Status (can be chaotic depending on your environment . you can export it to a .txt file for easier reading or use | findstr if you know what you are looking for )
+Start-->Programs-->Acessories-->System Tools-->Scheduled Tasks = Task Scheduled GUI
+
+Watch out for:
+
+1)Unusual scheduled tasks ( especially those that run as SYSTEM, as a user in administrators group or have a blank username)
+2)Scheduled Tasks
 
 
 
 
+Identify Suspicious Log Entries
+-------------------------------
+
+Cl\>eventvwr.msc = spawns the GUI Event Viewer ( the most eye-friendly way lol)
+C:\> wevtutil qe Security /f:text = inspect the Windows EveNt Logs category you specified(in this case Security) . can be chaotic, you can output the content by using > C:\xx\xx\something.txt if you want.
+PS C:\> Get-EventLog -LogName Security | Format-List -Property * = the equivalent of the above command but in Powershell this time and with a cooler blue background ( lol)
+
+
+Watch out for:
+
+1) Any indication that event log service was stopped
+2) Any indication that Windows File Integrity Checker ( Windows File Protection) was disabled
+3) large number of failed logons about a specific account following a successful logon for that account
+4) Large number of failed logons across many accounts ( Password Spray Attack)
+5) Large number of failed logons for a specific account ( Brute Force Password Attack)
 
 
 
-
+TaskManager
 DeepBlueCLI
 regshot
-Procmon
+Procmon / Process Monitor = shows file system,registry,network and process activity in real-time.Ideal for detonating malicious files/scripts in a sandbox and see live the changes on your system
+Procexplorer / Process Explorer = gives in depth information about running processes
+TCPView = maps listening TCP/UDP port back to owning processes
+SRUMdump
 
 
