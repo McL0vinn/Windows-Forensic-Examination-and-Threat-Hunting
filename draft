@@ -154,6 +154,6 @@ Procmon / Process Monitor = shows file system,registry,network and process activ
 Procexplorer / Process Explorer = gives in depth information about running processes
 TCPView = maps listening TCP/UDP port back to owning processes
 SRUMdump
-FTK Imager /Volexity / Volatility
+FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then everything else follows)
 
 
