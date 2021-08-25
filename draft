@@ -1,0 +1,61 @@
+"Run as Administrator" through CMD and/or Powershell
+
+Identify Suspicious Processes
+
+Command line
+tasklist
+tasklist /v
+tasklist /m
+tasklist /v /fi "pid eq 555"
+tasklist /m /fi "pid eq 555"
+Tasklist /v | findstr Teams.exe
+
+Wmic is even more powerful than Tasklist.
+
+wmic process list brief
+wmic process list full
+wmic process get Name,Commandline,Description,ProcessID,ParentProcessID
+wmic process where Name=Teams.exe get ProcessID,ParentProcessID
+wmic process where ProcessID=555
+
+Watch out for:
+1) Is this a new or unrecognized process? ( ideally you would want to cross reference your findings with a baseline image -if you have. It will make the whole task of identifying what stands out from "normal activity" easier)
+2) Is the name of the Process random-looking ( e.g hJoIuG.exe or whatever)
+3) Is it running from a non-standard path ( e.g C:\Temp , C:\Downloads , C:\Music etc)
+4)  Is the parent suspicious ( child process might be legit but parent process not)
+5) Is the Parent-Child relationship suspicious? ( e.g lsass.exe spawning a cmd.exe or IEX spawning a Powershell.exe etc)
+6) Is the process tied to suspicious activity? ( e.g a process communicating with well known malicious IP/URL/host/domain etc)
+7) Encoded in Base64 ?
+8) A process can be used for benign and malicious purposes at the same time. ( e.g PSEXEC ) 
+9) Suspicious does not necessarily mean Malicious.
+
+
+Identifying Suspicious Network Activity
+
+netstat -abno ( this is pretty much all you need)
+netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
+-n = 
+-a = 
+-b = shows the EXE using that port and the DLLs that it has loaded to interact with that port.
+-o = shows the owner ProcessID associated with the port
+
+Watch out for:
+1) Network activity that is abnormal for the associated Process  (e.g Notepad outbound/inbound connections to a Public IP etc)
+2) Network activity that is abnormal for your environment/Business Unit/Organization ( e.g lots of traffic during weekends, late hours, holidays etc, long running HTTP/HTTPS sessions etc) ( 2 ways to spot this kind of activity- either have a baseline image of Business as usual activity or know VERY WELL your environment/org/BU)
+3) Network activity from/to well known Malicious IPs/Domains/URLs/Hosts  ( leverage Threat Intel & OSINT to identify those IOCs e.g alienvault , abuseipdb , virustotal, hybrid-analysis)
+
+
+Identifying Suspicious Services
+
+services.msc = spawns the services control panel GUI . shows various services and their Description, Status, Startup Type, Log on as. shows ALL services (running/not running)
+net start = shows a list of ONLY running services.
+sc query | more = vast amount of information for each service . can be chaotic.  ONLY running services
+tasklist /svc = shows which services are running out of each process on your system  along with their PIDs. maps running processes to services
+
+Watch out for:
+1) New services / Deleted services / Stopped Services (  ideally you would want to cross reference your findings with a baseline image -if you have. Otherwise talk with your Sys Admins. ) 
+2) Path to Executable looks abnormal( run services.msc --> right click on a service --> Properties)
+
+
+Identify Suspicious Registry ASEPs/Autostart Folders
+Windows has numerous registry and file locations that can be used to start software without a user taking a specific action
