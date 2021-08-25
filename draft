@@ -1,4 +1,4 @@
-"Run as Administrator" through CMD and/or Powershell
+For the bests results "Run as Administrator" through CMD and/or Powershell
 
 Identify Suspicious Processes
 
@@ -58,4 +58,52 @@ Watch out for:
 
 
 Identify Suspicious Registry ASEPs/Autostart Folders
-Windows has numerous registry and file locations that can be used to start software without a user taking a specific action
+
+Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs)
+
+The majority of malware manipulates the same registry keys.Those are: 
+
+
+C:\> regedit = spawns the Registry Editor -GUI to manually browse through the registry hive/keys
+C:\> reg query HKLM\Software\microsoft\windows\currentversion\run = displays the settings for the specified registry key
+
+These registry keys are responsible for executing programs when a system boots up or when a user logs on (Easiest way to establish persistence.Usually attackers map their backdoors there in order to survive reboot)
+
+Autostart folders associated with users.These programs are automatically invoked each time the given user logs on to the system and are sometimes altered by malware
+
+C:\> dir \s \b "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup = lists the contents of a user's autostart folder
+C:\> msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
+C:\> wmic startup list full = displays startup items
+Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
+
+
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
+
+
+Watch out for:
+
+1)
+2)
+3)
+4)
+
+
+
+
+
+
+
+
+
+
+DeepBlueCLI
+regshot
+Procmon
+
+
