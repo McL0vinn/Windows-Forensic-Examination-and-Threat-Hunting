@@ -152,8 +152,15 @@ DeepBlueCLI
 regshot
 Procmon / Process Monitor = shows file system,registry,network and process activity in real-time.Ideal for detonating malicious files/scripts in a sandbox and see live the changes on your system
 Procexplorer / Process Explorer = gives in depth information about running processes
+Strings = extracts and displays bot ASCII and 16-bit little endian Unicode strings
+C:\> strings malfile.exe
 TCPView = maps listening TCP/UDP port back to owning processes
 SRUMdump
 FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then everything else follows)
+
+
+C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows
+
+
 
 
