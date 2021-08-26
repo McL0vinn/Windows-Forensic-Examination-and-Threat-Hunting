@@ -147,9 +147,20 @@ Watch out for:
 
 
 
+
+
+Regshot = snapshot tool for Windows.Allows you to record a snapshot of the registry and optionally file system at two points in time.
+Provides a high level summary of the changes,showing registry keys that were added/deleted/modified as wel as any files that were added/deleted/modified
+Super easy to run in 5 steps
+1) Start Regshot and configure the options.By default Regshot is not going to record file system.You can specifiy that if you want by checking the Scan dir box and stating the directory you are interested in ( C:\ for example)
+2) Once you are done with the configuration of the tool and you got everything ready take the first snapshot
+3) Run the malware
+4) Use Regshot to take a second snapshot
+5) Once finished , click on Compare and Regshot will give you back the results after a few minutes
+
+
 TaskManager
 DeepBlueCLI
-regshot
 Procmon / Process Monitor = shows file system,registry,network and process activity in real-time.Ideal for detonating malicious files/scripts in a sandbox and see live the changes on your system
 Procexplorer / Process Explorer = gives in depth information about running processes
 Strings = extracts and displays bot ASCII and 16-bit little endian Unicode strings
