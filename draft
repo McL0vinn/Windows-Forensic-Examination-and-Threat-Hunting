@@ -175,3 +175,23 @@ C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on W
 
 
 
+
+cd ~ = returns you to home directory
+# = root
+$ = not root
+/ = top of the file system
+/bin /sbin = stores executable programs
+/dev = stores devices( terminals etc)
+/etc = holds configuration items . /etc/passwd and /etc/shadow and etc/network/interfaces
+/home = user's home directories
+/lib = contains common libraries
+/tmp = temporary data.cleared at reboot
+/usr = holds user programs and data
+/var = holds logs ( /var/log/)
+/opt = stores optional items . common location to drop git tools
+
+
+ps -ef
+ps -aux
+lsof -i 
+netstat -apno
