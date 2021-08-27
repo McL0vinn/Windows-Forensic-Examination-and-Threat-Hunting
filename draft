@@ -70,10 +70,18 @@ Identify Suspicious Registry ASEPs/Autostart Folders
 Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs)
 
 The majority of malware manipulates the same registry keys.Those are: 
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
+
+HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
 
 
 C:\> regedit = spawns the Registry Editor -GUI to manually browse through the registry hive/keys
 C:\> reg query HKLM\Software\microsoft\windows\currentversion\run = displays the settings for the specified registry key
+C:\> taskmgr.exe = Task Manager GUI. go to Startup tab
 
 These registry keys are responsible for executing programs when a system boots up or when a user logs on (Easiest way to establish persistence.Usually attackers map their backdoors there in order to survive reboot)
 
@@ -85,13 +93,7 @@ C:\> wmic startup list full = displays autostart programs
 Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
 
 
-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
 
-HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
-HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
 
 
 Watch out for:
@@ -123,7 +125,7 @@ Identify Suspicious Scheduled Tasks
 ------------------------------------
 
 C:\> schtasks = shows scheduled tasks and details about them such as Folder, Task Name, Next Run Time and Status (can be chaotic depending on your environment . you can export it to a .txt file for easier reading or use | findstr if you know what you are looking for )
-Start-->Programs-->Acessories-->System Tools-->Scheduled Tasks = Task Scheduled GUI
+C:\> taskschd.msc = brings up the Task Scheduler GUI.lots of info such as triggers,actions,conditions etc. much easier to work with
 
 Watch out for:
 
