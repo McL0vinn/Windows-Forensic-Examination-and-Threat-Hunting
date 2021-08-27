@@ -57,7 +57,7 @@ Identifying Suspicious Services
 services.msc = spawns the services control panel GUI . shows various services and their Description, Status, Startup Type, Log on as. shows ALL services (running/not running)
 net start = shows a list of ONLY running services.
 sc query | more = vast amount of information for each service . can be chaotic.  ONLY running services
-tasklist /svc = shows which services are running out of each process on your system  along with their PIDs. maps running processes to services
+tasklist /svc = shows which services are running out of each process on your system  along with their PIDs. maps running processes to services ( maps services-to-processes)
 
 Watch out for:
 1) New services / Deleted services / Stopped Services (  ideally you would want to cross reference your findings with a baseline image -if you have. Otherwise talk with your Sys Admins. ) 
@@ -85,13 +85,13 @@ C:\> wmic startup list full = displays autostart programs
 Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
 
 
-HKLM\Software\Microsoft\Windows\CurrentVersion\Run
-HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
-HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
 
-HKCU\Software\Microsoft\Windows\CurrentVersion\Run
-HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
-HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
+HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
 
 
 Watch out for:
