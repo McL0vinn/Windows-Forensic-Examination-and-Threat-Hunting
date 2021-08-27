@@ -1,9 +1,12 @@
+Various commands/tools/techniques that you can use to examine live Windows systems for signs of Compromise
+Can also be used to create a baseline for your environment
+
 For the bests results "Run as Administrator" through CMD and/or Powershell
 
 Identify Suspicious Processes
 -------------------------------
 
-Command line
+C:\> taskmgr.exe = invokes the Task Manager GUI
 tasklist
 tasklist /v
 tasklist /m
@@ -16,6 +19,7 @@ Wmic is even more powerful than Tasklist.
 wmic process list brief
 wmic process list full
 wmic process get Name,Commandline,Description,ProcessID,ParentProcessID
+C:\> wmic process where processid=600 list full
 wmic process where Name=Teams.exe get ProcessID,ParentProcessID
 wmic process where ProcessID=555
 
