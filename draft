@@ -223,7 +223,9 @@ $ = not root
 ps -ef
 ps -aux
 lsof -i 
+lsof -p
 netstat -apno = linux equibalent of windows netstat -abno
+https://linuxhint.com/determine_if_linux_is_compromised/
 
 namechk
 Whatsmyname.app
