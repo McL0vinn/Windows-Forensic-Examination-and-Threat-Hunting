@@ -197,6 +197,7 @@ FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then e
 
 
 C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows
+PS C:\> Get-FileHash -Algorithm MD5 malfile.exe
 
 
 
