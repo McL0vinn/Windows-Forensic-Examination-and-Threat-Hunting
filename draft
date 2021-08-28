@@ -152,6 +152,26 @@ Watch out for:
 5) Large number of failed logons for a specific account ( Brute Force Password Attack)
 
 
+Identify Suspicious SMB activity
+----------------------------------
+
+When your machine is acting as a client and want to see the outbound SMB activity
+C:\> net use = displays the target machine and the share to which you are connected
+C:\> net use \\192.168.1.1 /del = drops the SMB session
+C:\>net use * /del = drops all outbound SMB sessions
+
+When your machine is acting as a server and want to see the inbound SMB activity
+C:\>net session = list the inbound sessions
+C:\>net session \\192.168.1.1 /del = drops the inbound SMB session
+
+Watch out for:
+
+1)The ability to drop individual SMB sessions (either inbound or outbound) can be useful because this can temporarily stop an attacker from using the SMB session.
+This way you can buy some time or interrupt a data exfiltration in progress
+2) Don't expose your TCP/UDP 135,136,137,138,139,445 ports to the internet. Shut them down or if there is a legit business purpose put them behind firewalls with ACLs enforcing access to authorized IPs only
+3)most of them time SMB traffic is between a client and a Server.if you see client-to-client smb activity that should be investigated.
+
+
 
 
 
