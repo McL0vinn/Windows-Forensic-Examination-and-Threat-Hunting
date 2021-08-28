@@ -126,6 +126,8 @@ Identify Suspicious Scheduled Tasks
 
 C:\> schtasks = shows scheduled tasks and details about them such as Folder, Task Name, Next Run Time and Status (can be chaotic depending on your environment . you can export it to a .txt file for easier reading or use | findstr if you know what you are looking for )
 C:\> taskschd.msc = brings up the Task Scheduler GUI.lots of info such as triggers,actions,conditions etc. much easier to work with
+PS C:\> Get-ScheduledTask = Powershell commands that lists scheduled taks on the system with info about Taskpath,Taskname,State.
+PS C:\> Get-ScheduledTask -TaskName "THIS IS SPARTA" if you know the Taskname of the scheduled task you are looking for, use this
 
 Watch out for:
 
