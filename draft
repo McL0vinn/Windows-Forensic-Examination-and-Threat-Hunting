@@ -200,4 +200,18 @@ $ = not root
 ps -ef
 ps -aux
 lsof -i 
-netstat -apno
+netstat -apno = linux equibalent of windows netstat -abno
+
+namechk
+Whatsmyname.app
+foca
+exiftool
+nslookup
+dig
+site:
+link:
+intitle:
+inurl:
+
+
+
