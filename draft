@@ -175,7 +175,7 @@ This way you can buy some time or interrupt a data exfiltration in progress
 
 
 
-Regshot = snapshot tool for Windows.Allows you to record a snapshot of the registry and optionally file system at two points in time.
+Regshot = snapshot tool for Windows.Allows you to record a snapshot of the registry and optionally file system at two points in time and then highlights the differences between the two.
 Provides a high level summary of the changes,showing registry keys that were added/deleted/modified as wel as any files that were added/deleted/modified
 Super easy to run in 5 steps
 1) Start Regshot and configure the options.By default Regshot is not going to record file system.You can specifiy that if you want by checking the Scan dir box and stating the directory you are interested in ( C:\ for example)
