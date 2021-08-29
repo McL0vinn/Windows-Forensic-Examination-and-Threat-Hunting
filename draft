@@ -171,7 +171,7 @@ Watch out for:
 1)The ability to drop individual SMB sessions (either inbound or outbound) can be useful because this can temporarily stop an attacker from using the SMB session.
 This way you can buy some time or interrupt a data exfiltration in progress
 2) Don't expose your TCP/UDP 135,136,137,138,139,445 ports to the internet. Shut them down or if there is a legit business purpose put them behind firewalls with ACLs enforcing access to authorized IPs only
-3)most of them time SMB traffic is between a client and a Server.if you see client-to-client smb activity that should be investigated.
+3)most of them time SMB traffic is between a client and a Server.if you see client-to-client smb activity or excessive server-to-server smb activity without a valid business purpose,then that should be investigated.
 
 
 
