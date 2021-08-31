@@ -227,6 +227,12 @@ lsof -p
 netstat -apno = linux equibalent of windows netstat -abno
 https://linuxhint.com/determine_if_linux_is_compromised/
 
+cat $HOME/.bash_history = check the shell history
+/etc/syslog.conf = log configuration file that can help you locate where the logs at
+cat /var/log/xxxx = logs( by default. advise the syslog.conf)
+
+Check Accounting entries = utmp,wtmp,btmp,lastlog
+
 namechk
 Whatsmyname.app
 foca
