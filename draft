@@ -200,7 +200,9 @@ FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then e
 
 C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows
 PS C:\> Get-FileHash -Algorithm MD5 malfile.exe
-
+C:\> DIR /r = look for alternate data streams
+PS :> Get-Item * -Stream * = look for alternate data streams in Blue
+PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS
 
 
 
