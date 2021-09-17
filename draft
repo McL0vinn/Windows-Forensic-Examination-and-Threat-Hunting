@@ -1,5 +1,5 @@
-Various commands/tools/techniques that you can use to examine live Windows systems for signs of Compromise
-Can also be used to create a baseline for your environment
+Various commands/tools/techniques that you can use to examine live Windows systems for signs of Compromise or for Threat Hunting.
+Can also be used to create a baseline for your environment 
 
 For the bests results "Run as Administrator" through CMD and/or Powershell
 
