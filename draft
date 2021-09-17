@@ -1,8 +1,3 @@
-Various commands/tools/techniques that you can use to examine live Windows systems for signs of Compromise or for Threat Hunting.
-Can also be used to create a baseline for your environment 
-
-For the bests results "Run as Administrator" through CMD and/or Powershell
-
 Identify Suspicious Processes
 -------------------------------
 
@@ -203,48 +198,3 @@ PS C:\> Get-FileHash -Algorithm MD5 malfile.exe
 C:\> DIR /r = look for alternate data streams
 PS :> Get-Item * -Stream * = look for alternate data streams in Blue
 PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS
-
-
-
-
-cd ~ = returns you to home directory
-# = root
-$ = not root
-/ = top of the file system
-/bin /sbin = stores executable programs
-/dev = stores devices( terminals etc)
-/etc = holds configuration items . /etc/passwd and /etc/shadow and etc/network/interfaces
-/home = user's home directories
-/lib = contains common libraries
-/tmp = temporary data.cleared at reboot
-/usr = holds user programs and data
-/var = holds logs ( /var/log/)
-/opt = stores optional items . common location to drop git tools
-
-
-ps -ef
-ps -aux
-lsof -i 
-lsof -p
-netstat -apno = linux equibalent of windows netstat -abno
-https://linuxhint.com/determine_if_linux_is_compromised/
-
-cat $HOME/.bash_history = check the shell history
-/etc/syslog.conf = log configuration file that can help you locate where the logs at
-cat /var/log/xxxx = logs( by default. advise the syslog.conf)
-
-Check Accounting entries = utmp,wtmp,btmp,lastlog
-
-namechk
-Whatsmyname.app
-foca
-exiftool
-nslookup
-dig
-site:
-link:
-intitle:
-inurl:
-
-
-
