@@ -200,7 +200,8 @@ PS :> Get-Item * -Stream * = look for alternate data streams in Blue
 PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS
 
 
-
+Collect Metadata
+exiftool
 
 
 
@@ -236,7 +237,6 @@ Check Accounting entries = utmp,wtmp,btmp,lastlog
 namechk
 Whatsmyname.app
 foca
-exiftool
 nslookup
 dig
 site:
