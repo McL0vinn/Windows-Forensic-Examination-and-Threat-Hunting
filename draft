@@ -2,12 +2,14 @@ Identify Suspicious Processes
 -------------------------------
 
 C:\> taskmgr.exe = invokes the Task Manager GUI
-tasklist
-tasklist /v
-tasklist /m
+tasklist = Displays a list of currently running processes on the local computer or on a remote computer
+tasklist /v = Displays verbose task information in the output. ( PID , memory usage status, User name)
+tasklist /m = Lists all tasks with PID and DLL modules loaded that match the given pattern name. If the module name is not specified, this option displays all modules loaded by each task.
+tasklist /fi = Specifies the types of processes to include in or exclude from the query.examples below
 tasklist /v /fi "pid eq 555"
 tasklist /m /fi "pid eq 555"
 Tasklist /v | findstr Teams.exe
+tasklist /m | findstr Teams.exe
 
 Wmic is even more powerful than Tasklist.
 
@@ -35,10 +37,13 @@ Identifying Suspicious Network Activity
 
 netstat -abno ( this is pretty much all you need)
 netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
--n = 
--a = 
+
+-n = addresses and port numbers are expressed numerically and no attempt is made to determine names.
+-a = Displays all active TCP connections and the TCP and UDP ports on which the computer is listening
 -b = shows the EXE using that port and the DLLs that it has loaded to interact with that port.
 -o = shows the owner ProcessID associated with the port
+
+You can redirect the outpout into a .txt file if it helps you analyze the results better e.g netstat -abno > C:\Users\McL0vin\Desktop\netstat.txt
 
 Watch out for:
 1) Network activity that is abnormal for the associated Process  (e.g Notepad outbound/inbound connections to a Public IP etc)
@@ -203,47 +208,7 @@ PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where
 Collect Metadata
 exiftool
 
-
-
-
-cd ~ = returns you to home directory
-# = root
-$ = not root
-/ = top of the file system
-/bin /sbin = stores executable programs
-/dev = stores devices( terminals etc)
-/etc = holds configuration items . /etc/passwd and /etc/shadow and etc/network/interfaces
-/home = user's home directories
-/lib = contains common libraries
-/tmp = temporary data.cleared at reboot
-/usr = holds user programs and data
-/var = holds logs ( /var/log/)
-/opt = stores optional items . common location to drop git tools
-
-
-ps -ef
-ps -aux
-lsof -i 
-lsof -p
-netstat -apno = linux equibalent of windows netstat -abno
-https://linuxhint.com/determine_if_linux_is_compromised/
-
-cat $HOME/.bash_history = check the shell history
-/etc/syslog.conf = log configuration file that can help you locate where the logs at
-cat /var/log/xxxx = logs( by default. advise the syslog.conf)
-
-Check Accounting entries = utmp,wtmp,btmp,lastlog
-
-namechk
-Whatsmyname.app
-foca
 nslookup
-dig
-site:
-link:
-intitle:
-inurl:
-
 
 
 
