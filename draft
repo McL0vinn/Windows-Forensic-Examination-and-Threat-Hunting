@@ -13,11 +13,11 @@ tasklist /m | findstr Teams.exe
 
 Wmic is even more powerful than Tasklist.
 
-wmic process list brief
-wmic process list full
-wmic process get Name,Commandline,Description,ProcessID,ParentProcessID
-C:\> wmic process where processid=600 list full
-wmic process where Name=Teams.exe get ProcessID,ParentProcessID
+wmic process list brief = brief list of the currently running processes
+wmic process list full = full list of the currently running processes
+wmic process get Name,Commandline,Description,ProcessID,ParentProcessID = specify only which fields you want to grab
+C:\> wmic process where processid=600 list full = full info of the process running with pid=600
+wmic process where Name=Teams.exe get ProcessID,ParentProcessID = full list of the process running with Name=teams.exe but return only the Pid and Ppid values
 wmic process where ProcessID=555
 
 Watch out for:
