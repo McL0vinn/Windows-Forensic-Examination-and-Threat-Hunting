@@ -2,23 +2,23 @@ Identify Suspicious Processes
 -------------------------------
 
 C:\> taskmgr.exe = invokes the Task Manager GUI
-tasklist = Displays a list of currently running processes on the local computer or on a remote computer
-tasklist /v = Displays verbose task information in the output. ( PID , memory usage status, User name)
-tasklist /m = Lists all tasks with PID and DLL modules loaded that match the given pattern name. If the module name is not specified, this option displays all modules loaded by each task.
-tasklist /fi = Specifies the types of processes to include in or exclude from the query.examples below
-tasklist /v /fi "pid eq 555"
-tasklist /m /fi "pid eq 555"
-Tasklist /v | findstr Teams.exe
-tasklist /m | findstr Teams.exe
+C:\> tasklist = Displays a list of currently running processes on the local computer or on a remote computer
+C:\> tasklist /v = Displays verbose task information in the output. ( PID , memory usage status, User name)
+C:\> tasklist /m = Lists all tasks with PID and DLL modules loaded that match the given pattern name. If the module name is not specified, this option displays all modules loaded by each task.
+C:\> tasklist /fi = Specifies the types of processes to include in or exclude from the query.examples below
+C:\> tasklist /v /fi "pid eq 555"
+C:\> tasklist /m /fi "pid eq 555"
+C:\> Tasklist /v | findstr Teams.exe
+C:\> Tasklist /m | findstr Teams.exe
 
 Wmic is even more powerful than Tasklist.
 
-wmic process list brief = brief list of the currently running processes
-wmic process list full = full list of the currently running processes
-wmic process get Name,Commandline,Description,ProcessID,ParentProcessID = specify only which fields you want to grab
+C:\> wmic process list brief = brief list of the currently running processes
+C:\> wmic process list full = full list of the currently running processes
+C:\> wmic process get Name,Commandline,Description,ProcessID,ParentProcessID = specify only which fields you want to grab
 C:\> wmic process where processid=600 list full = full info of the process running with pid=600
-wmic process where Name=Teams.exe get ProcessID,ParentProcessID = full list of the process running with Name=teams.exe but return only the Pid and Ppid values
-wmic process where ProcessID=555
+C:\> wmic process where Name=Teams.exe get ProcessID,ParentProcessID = full list of the process running with Name=teams.exe but return only the Pid and Ppid values
+C:\> wmic process where ProcessID=555
 
 Watch out for:
 1) Is this a new or unrecognized process? ( ideally you would want to cross reference your findings with a baseline image -if you have. It will make the whole task of identifying what stands out from "normal activity" easier)
@@ -35,8 +35,8 @@ Watch out for:
 Identifying Suspicious Network Activity
 -----------------------------------------
 
-netstat -abno ( this is pretty much all you need)
-netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
+C:\> netstat -abno ( this is pretty much all you need)
+C:\> netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
 
 -n = addresses and port numbers are expressed numerically and no attempt is made to determine names.
 -a = Displays all active TCP connections and the TCP and UDP ports on which the computer is listening
@@ -69,7 +69,7 @@ Identify Suspicious Registry ASEPs/Autostart Folders
 
 Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs)
 
-The majority of malware manipulates the same registry keys.Those are: 
+The majority of malware manipulates the same registry keys in order to establish persistence and survive a reboot.Those are: 
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
@@ -109,7 +109,7 @@ Identify Suspicious Account Activity
 
 c:\> lusrmgr.msc = spawns a GUI which can be used to check the users and groups defined on the machine
 C:\> net user = displays a list of users
-C:\>net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
+C:\> net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
 
 
 
@@ -150,7 +150,7 @@ Watch out for:
 1) Any indication that event log service was stopped
 2) Any indication that Windows File Integrity Checker ( Windows File Protection) was disabled
 3) large number of failed logons about a specific account following a successful logon for that account
-4) Large number of failed logons across many accounts ( Password Spray Attack)
+4) Small number of failed logons across many accounts ( Password Spray Attack)
 5) Large number of failed logons for a specific account ( Brute Force Password Attack)
 
 
