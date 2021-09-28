@@ -1,5 +1,5 @@
 # Windows Forensic Examination and Threat Hunting
-# *DeepBlueCLI*
+#DeepBlueCLI
 
 Identify Suspicious Processes
 ----------------------------------------------------------------------------
