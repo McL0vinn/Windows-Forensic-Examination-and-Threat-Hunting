@@ -3,7 +3,8 @@
 1) [Identifying Suspicious Processes](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Identifying-Suspicious-Processes)
 2) [Identifying Suspicious Network Activity](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Identifying-Suspicious-Network-Activity)
 3) [Identifying Suspicious Services](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-services)
-4) [Miscellaneous](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Miscellaneous)
+4) [Identifying Suspicious Registry ASEPs/Autostart Folders](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-registry-asepsautostart-folders)
+5) [Identifying Suspicious Account Activity](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Identifying-Suspicious-Account-Activity)
 
 Identifying Suspicious Processes
 ----------------------------------------------------------------------------
@@ -71,7 +72,7 @@ Watch out for:
 2) Path to Executable looks abnormal( run services.msc --> right click on a service --> Properties)
 
 
-Identify Suspicious Registry ASEPs/Autostart Folders
+Identifying Suspicious Registry ASEPs/Autostart Folders
 ------------------------------------------------------
 
 Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs).
@@ -110,7 +111,7 @@ Watch out for:
 4)
 
 
-Identify Suspicious Account Activity
+Identifying Suspicious Account Activity
 --------------------------------------
 
 1) c:\> lusrmgr.msc = spawns a GUI which can be used to check the users and groups defined on the machine
