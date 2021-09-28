@@ -56,10 +56,10 @@ Watch out for:
 Identifying Suspicious Services
 ----------------------------------
 
-services.msc = spawns the services control panel GUI . shows various services and their Description, Status, Startup Type, Log on as. shows ALL services (running/not running)
-net start = shows a list of ONLY running services.
-sc query | more = vast amount of information for each service . can be chaotic.  ONLY running services
-tasklist /svc = shows which services are running out of each process on your system  along with their PIDs. maps running processes to services ( maps services-to-processes)
+1) services.msc = spawns the services control panel GUI . shows various services and their Description, Status, Startup Type, Log on as. shows ALL services (running/not running)
+2) net start = shows a list of ONLY running services.
+3) sc query | more = vast amount of information for each service . can be chaotic.  ONLY running services
+4) tasklist /svc = shows which services are running out of each process on your system  along with their PIDs. maps running processes to services ( maps services-to-processes)
 
 Watch out for:
 1) New services / Deleted services / Stopped Services (  ideally you would want to cross reference your findings with a baseline image -if you have. Otherwise talk with your Sys Admins. ) 
@@ -69,9 +69,10 @@ Watch out for:
 Identify Suspicious Registry ASEPs/Autostart Folders
 ------------------------------------------------------
 
-Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs)
+Windows has numerous registry and file locations that can be used to start software without a user taking a specific action.These locations are called Autostart Extensibility Points (ASEPs).
 
-The majority of malware manipulates the same registry keys in order to establish persistence and survive a reboot.Those are: 
+The majority of malware manipulates the same registry keys in order to establish persistence and survive a reboot.Those are:
+
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
@@ -81,20 +82,18 @@ HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
 HKEY_CURENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnceEx
 
 
-C:\> regedit = spawns the Registry Editor -GUI to manually browse through the registry hive/keys
-C:\> reg query HKLM\Software\microsoft\windows\currentversion\run = displays the settings for the specified registry key
-C:\> taskmgr.exe = Task Manager GUI. go to Startup tab
+1) C:\> regedit = spawns the Registry Editor -GUI to manually browse through the registry hive/keys
+2) C:\> reg query HKLM\Software\microsoft\windows\currentversion\run = displays the settings for the specified registry key
+3) C:\> taskmgr.exe = Task Manager GUI. go to Startup tab
 
 These registry keys are responsible for executing programs when a system boots up or when a user logs on (Easiest way to establish persistence.Usually attackers map their backdoors there in order to survive reboot)
 
 Autostart folders associated with users.These programs are automatically invoked each time the given user logs on to the system and are sometimes altered by malware
 
-C:\> dir \s \b "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup = lists the contents of a user's autostart folder
-C:\> start msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
-C:\> wmic startup list full = displays autostart programs
-Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
-
-
+1) C:\> dir \s \b "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup = lists the contents of a user's autostart folder
+2) C:\> start msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
+3) C:\> wmic startup list full = displays autostart programs.
+4) Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
 
 
 
@@ -109,9 +108,9 @@ Watch out for:
 Identify Suspicious Account Activity
 --------------------------------------
 
-c:\> lusrmgr.msc = spawns a GUI which can be used to check the users and groups defined on the machine
-C:\> net user = displays a list of users
-C:\> net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
+1) c:\> lusrmgr.msc = spawns a GUI which can be used to check the users and groups defined on the machine
+2) C:\> net user = displays a list of users
+3) C:\> net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
 
 
 
@@ -126,10 +125,10 @@ Watch out for:
 Identify Suspicious Scheduled Tasks
 ------------------------------------
 
-C:\> schtasks = shows scheduled tasks and details about them such as Folder, Task Name, Next Run Time and Status (can be chaotic depending on your environment . you can export it to a .txt file for easier reading or use | findstr if you know what you are looking for )
-C:\> taskschd.msc = brings up the Task Scheduler GUI.lots of info such as triggers,actions,conditions etc. much easier to work with
-PS C:\> Get-ScheduledTask = Powershell commands that lists scheduled taks on the system with info about Taskpath,Taskname,State.
-PS C:\> Get-ScheduledTask -TaskName "THIS IS SPARTA" if you know the Taskname of the scheduled task you are looking for, use this
+1) C:\> schtasks = shows scheduled tasks and details about them such as Folder, Task Name, Next Run Time and Status (can be chaotic depending on your environment . you can export it to a .txt file for easier reading or use | findstr if you know what you are looking for )
+2) C:\> taskschd.msc = brings up the Task Scheduler GUI.lots of info such as triggers,actions,conditions etc. much easier to work with
+3) PS C:\> Get-ScheduledTask = Powershell commands that lists scheduled taks on the system with info about Taskpath,Taskname,State.
+4) PS C:\> Get-ScheduledTask -TaskName "THIS IS SPARTA" if you know the Taskname of the scheduled task you are looking for, use this
 
 Watch out for:
 
@@ -142,37 +141,39 @@ Watch out for:
 Identify Suspicious Log Entries
 -------------------------------
 
-Cl\>eventvwr.msc = spawns the GUI Event Viewer ( the most eye-friendly way lol)
-C:\> wevtutil qe Security /f:text = inspect the Windows EveNt Logs category you specified(in this case Security) . can be chaotic, you can output the content by using > C:\xx\xx\something.txt if you want.
-PS C:\> Get-EventLog -LogName Security | Format-List -Property * = the equivalent of the above command but in Powershell this time and with a cooler blue background ( lol)
+1) Cl\>eventvwr.msc = spawns the GUI Event Viewer ( the most eye-friendly way lol)
+2) C:\> wevtutil qe Security /f:text = inspect the Windows EveNt Logs category you specified(in this case Security) . can be chaotic, you can output the content by using > C:\xx\xx\something.txt if you want.
+3) PS C:\> Get-EventLog -LogName Security | Format-List -Property * = the equivalent of the above command but in Powershell this time and with a cooler blue background ( lol)
 
 
 Watch out for:
 
 1) Any indication that event log service was stopped
 2) Any indication that Windows File Integrity Checker ( Windows File Protection) was disabled
-3) large number of failed logons about a specific account following a successful logon for that account
-4) Small number of failed logons across many accounts ( Password Spray Attack)
+3) Large number of failed logons about a specific account following a successful logon for that account
+4) Small number of failed logons across many accounts ( Password Spray Attack) ( usually between 1-3 password tries per account to avoid account lockout threshold)
 5) Large number of failed logons for a specific account ( Brute Force Password Attack)
 
 
 Identify Suspicious SMB activity
 ----------------------------------
 
-When your machine is acting as a client and want to see the outbound SMB activity
-C:\> net use = displays the target machine and the share to which you are connected
-C:\> net use \\192.168.1.1 /del = drops the SMB session
-C:\>net use * /del = drops all outbound SMB sessions
+*When your machine is acting as a client and want to see the outbound SMB activity*
 
-When your machine is acting as a server and want to see the inbound SMB activity
-C:\>net session = list the inbound sessions
-C:\>net session \\192.168.1.1 /del = drops the inbound SMB session
+1) C:\> net use = displays the target machine and the share to which you are connected
+2) C:\> net use \\192.168.1.1 /del = drops the SMB session
+3) C:\>net use * /del = drops all outbound SMB sessions
+
+*When your machine is acting as a server and want to see the inbound SMB activity*
+
+1) C:\>net session = list the inbound sessions
+2) C:\>net session \\192.168.1.1 /del = drops the inbound SMB session
 
 Watch out for:
 
 1)The ability to drop individual SMB sessions (either inbound or outbound) can be useful because this can temporarily stop an attacker from using the SMB session.
-This way you can buy some time or interrupt a data exfiltration in progress
-2) Don't expose your TCP/UDP 135,136,137,138,139,445 ports to the internet. Shut them down or if there is a legit business purpose put them behind firewalls with ACLs enforcing access to authorized IPs only
+This way you can buy some time or interrupt a data exfiltration in progress.
+2) Don't expose your TCP/UDP 135,136,137,138,139,445 ports to the internet. Shut them down or if there is a legit business purpose put them behind firewalls with ACLs enforcing access to authorized IPs only.
 3)most of them time SMB traffic is between a client and a Server.if you see client-to-client smb activity or excessive server-to-server smb activity without a valid business purpose,then that should be investigated.
 
 
@@ -217,8 +218,8 @@ Miscellaneous
 
 
 Watch out for
-1) Size
-2) Timestamps
+1) Size.
+2) Timestamps ( Access,Creation,Modification).
 3) File type and File Type extension.It's pretty common for attackers to change the extension of their scripts into something trivial such as .bmp / .jpg etc in order to avoid detection.
-4) 
+4) File permissions.
 
