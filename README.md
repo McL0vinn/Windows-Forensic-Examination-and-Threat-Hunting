@@ -203,15 +203,22 @@ Miscellaneous
 ---------------------------------------------------------------------
 
 *Get hashes*
-1) C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows
-2) PS C:\> Get-FileHash -Algorithm MD5 malfile.exe - Calculates the MD5 hash of a file on Windows leveraging powershell
+1) C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows.
+2) PS C:\> Get-FileHash -Algorithm MD5 malfile.exe - Calculates the MD5 hash of a file on Windows leveraging powershell.
 
 *Detect alternate data streams*
-1) C:\> DIR /r = look for alternate data streams
-2) PS :> Get-Item * -Stream * = look for alternate data streams with Powershell
-3) PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS
+1) C:\> DIR /r = look for alternate data streams.
+2) PS :> Get-Item * -Stream * = look for alternate data streams with Powershell.
+3) PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS.
 
 
 *Collect Metadata*
-exiftool
+1) Use exiftool for Windows.
+
+
+Watch out for
+1) Size
+2) Timestamps
+3) File type and File Type extension.It's pretty common for attackers to change the extension of their scripts into something trivial such as .bmp / .jpg etc in order to avoid detection.
+4) 
 
