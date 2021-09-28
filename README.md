@@ -3,7 +3,7 @@
 Identify Suspicious Processes
 -------------------------------
 
-C:\> taskmgr.exe = invokes the Task Manager GUI
+C:\> taskmgr.exe = invokes the Task Manager GUI.
 C:\> tasklist = Displays a list of currently running processes on the local computer or on a remote computer
 C:\> tasklist /v = Displays verbose task information in the output. ( PID , memory usage status, User name)
 C:\> tasklist /m = Lists all tasks with PID and DLL modules loaded that match the given pattern name. If the module name is not specified, this option displays all modules loaded by each task.
