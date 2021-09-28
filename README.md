@@ -206,6 +206,7 @@ Miscellaneous
 Use exiftool for Windows.Watch out for Size,Timestamps ( Access,Creation,Modification),File type and File Type extension(It's pretty common for attackers to change the extension of their scripts into something trivial such as .bmp / .jpg etc in order to avoid detection),File permissions etc
 
 *DeepBlueCLI*
+
 DeepBlueCLI - a PowerShell Module for Threat Hunting via Windows Event Logs. It can work with the below Windows event logs:
 * Windows Security
 * Windows System
