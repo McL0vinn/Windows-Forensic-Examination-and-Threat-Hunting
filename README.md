@@ -210,9 +210,9 @@ DeepBlueCLI - a PowerShell Module for Threat Hunting via Windows Event Logs. It 
 * Windows Security
 * Windows System
 * Windows Application
-Windows PowerShell
-Sysmon
-More info below
+* Windows PowerShell
+* Sysmon
+* More info see: 
 https://github.com/sans-blue-team/DeepBlueCLI
 
 Regshot = snapshot tool for Windows.Allows you to record a snapshot of the registry and optionally file system at two points in time and then highlights the differences between the two.
