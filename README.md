@@ -207,9 +207,9 @@ Use exiftool for Windows.Watch out for Size,Timestamps ( Access,Creation,Modific
 
 *DeepBlueCLI*
 DeepBlueCLI - a PowerShell Module for Threat Hunting via Windows Event Logs. It can work with the below Windows event logs:
-*Windows Security
-*Windows System
-*Windows Application
+* Windows Security
+* Windows System
+* Windows Application
 Windows PowerShell
 Sysmon
 More info below
