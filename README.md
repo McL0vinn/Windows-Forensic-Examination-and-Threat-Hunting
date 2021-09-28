@@ -1,9 +1,11 @@
 # Windows Forensic Examination and Threat Hunting
 
-1) [Identifying Suspicious Services](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-services)
-2) [Miscellaneous](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Miscellaneous)
+1) [Identifying Suspicious Processes](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Identifying-Suspicious-Processes)
+2) [Identifying Suspicious Network Activity](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Identifying-Suspicious-Network-Activity)
+3) [Identifying Suspicious Services](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-services)
+4) [Miscellaneous](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Miscellaneous)
 
-Identify Suspicious Processes
+Identifying Suspicious Processes
 ----------------------------------------------------------------------------
 
 1) C:\> taskmgr.exe = invokes the Task Manager GUI.
