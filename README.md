@@ -5,6 +5,10 @@
 3) [Identifying Suspicious Services](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-services)
 4) [Identifying Suspicious Registry ASEPs/Autostart Folders](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-registry-asepsautostart-folders)
 5) [Identifying Suspicious Account Activity](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#Identifying-Suspicious-Account-Activity)
+6) [Identifying Suspicious Scheduled Tasks](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-scheduled-tasks)
+7) [Identifying Suspicious Log Entries](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-log-entries)
+8) [Identifying Suspicious SMB Activity](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-smb-activity)
+9) [Miscellaneous](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#miscellaneous)
 
 Identifying Suspicious Processes
 ----------------------------------------------------------------------------
@@ -128,7 +132,7 @@ Watch out for:
 4)
 
 
-Identify Suspicious Scheduled Tasks
+Identifying Suspicious Scheduled Tasks
 ------------------------------------
 
 1) C:\> schtasks = shows scheduled tasks and details about them such as Folder, Task Name, Next Run Time and Status (can be chaotic depending on your environment . you can export it to a .txt file for easier reading or use | findstr if you know what you are looking for )
@@ -144,7 +148,7 @@ Watch out for:
 
 
 
-Identify Suspicious Log Entries
+Identifying Suspicious Log Entries
 -------------------------------
 
 1) Cl\>eventvwr.msc = spawns the GUI Event Viewer ( the most eye-friendly way lol)
@@ -161,7 +165,7 @@ Watch out for:
 5) Large number of failed logons for a specific account ( Brute Force Password Attack)
 
 
-Identify Suspicious SMB activity
+Identifying Suspicious SMB activity
 ----------------------------------
 
 *When your machine is acting as a client and want to see the outbound SMB activity*
