@@ -1,5 +1,7 @@
 # Windows Forensic Examination and Threat Hunting
 
+#[Identifying Suspicious Services](https://github.com/McL0vinn/Windows-Forensic-Examination-and-Threat-Hunting/blob/main/README.md#identifying-suspicious-services)
+
 Identify Suspicious Processes
 ----------------------------------------------------------------------------
 
