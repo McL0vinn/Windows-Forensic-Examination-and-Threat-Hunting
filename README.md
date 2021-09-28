@@ -1,4 +1,5 @@
 # Windows Forensic Examination and Threat Hunting
+# *DeepBlueCLI*
 
 Identify Suspicious Processes
 ----------------------------------------------------------------------------
@@ -222,4 +223,14 @@ Watch out for
 2) Timestamps ( Access,Creation,Modification).
 3) File type and File Type extension.It's pretty common for attackers to change the extension of their scripts into something trivial such as .bmp / .jpg etc in order to avoid detection.
 4) File permissions.
+
+# *DeepBlueCLI*
+DeepBlueCLI - a PowerShell Module for Threat Hunting via Windows Event Logs. It can work with the below Windows event logs:
+Windows Security
+Windows System
+Windows Application
+Windows PowerShell
+Sysmon
+More info below
+https://github.com/sans-blue-team/DeepBlueCLI
 
