@@ -26,7 +26,7 @@ Watch out for:
 1) Is this a new or unrecognized process? ( ideally you would want to cross reference your findings with a baseline image -if you have. It will make the whole task of identifying what stands out from "normal activity" easier)
 2) Is the name of the Process random-looking ( e.g hJoIuG.exe or whatever)
 3) Is it running from a non-standard path ( e.g C:\Temp , C:\Downloads , C:\Music etc)
-4)  Is the parent suspicious ( child process might be legit but parent process not)
+4) Is the parent suspicious ( child process might be legit but parent process not)
 5) Is the Parent-Child relationship suspicious? ( e.g lsass.exe spawning a cmd.exe or IEX spawning a Powershell.exe etc)
 6) Is the process tied to suspicious activity? ( e.g a process communicating with well known malicious IP/URL/host/domain etc)
 7) Encoded in Base64 ?
@@ -37,8 +37,8 @@ Watch out for:
 Identifying Suspicious Network Activity
 -----------------------------------------
 
-C:\> netstat -abno ( this is pretty much all you need)
-C:\> netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
+1) C:\> netstat -abno ( this is pretty much all you need)
+2) C:\> netstat -abno -n 5 = Automatically refresh the output every 5 seconds.
 
 -n = addresses and port numbers are expressed numerically and no attempt is made to determine names.
 -a = Displays all active TCP connections and the TCP and UDP ports on which the computer is listening
