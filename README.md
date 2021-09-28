@@ -201,21 +201,15 @@ Miscellaneous
 3) PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS.
 
 
-*Collect Metadata*
-1) Use exiftool for Windows.
+*Collect Metadata on files*
 
-
-Watch out for
-1) Size.
-2) Timestamps ( Access,Creation,Modification).
-3) File type and File Type extension.It's pretty common for attackers to change the extension of their scripts into something trivial such as .bmp / .jpg etc in order to avoid detection.
-4) File permissions.
+Use exiftool for Windows.Watch out for Size,Timestamps ( Access,Creation,Modification),File type and File Type extension(It's pretty common for attackers to change the extension of their scripts into something trivial such as .bmp / .jpg etc in order to avoid detection),File permissions etc
 
 *DeepBlueCLI*
 DeepBlueCLI - a PowerShell Module for Threat Hunting via Windows Event Logs. It can work with the below Windows event logs:
-Windows Security
-Windows System
-Windows Application
+*Windows Security
+*Windows System
+*Windows Application
 Windows PowerShell
 Sysmon
 More info below
@@ -232,7 +226,6 @@ Super easy to run in 5 steps
 
 
 TaskManager
-DeepBlueCLI
 Procmon / Process Monitor = shows file system,registry,network and process activity in real-time.Ideal for detonating malicious files/scripts in a sandbox and see live the changes on your system
 Procexplorer / Process Explorer = gives in depth information about running processes
 Strings = extracts and displays bot ASCII and 16-bit little endian Unicode strings
