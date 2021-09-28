@@ -199,16 +199,19 @@ TCPView = maps listening TCP/UDP port back to owning processes
 SRUMdump
 FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then everything else follows)
 
+Miscellaneous
+---------------------------------------------------------------------
 
-C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows
-PS C:\> Get-FileHash -Algorithm MD5 malfile.exe
-C:\> DIR /r = look for alternate data streams
-PS :> Get-Item * -Stream * = look for alternate data streams in Blue
-PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS
+*Get hashes*
+1) C:\> certutil -hashfile malfile.exe MD5 = Calculates the MD5 Hash of a file on Windows
+2) PS C:\> Get-FileHash -Algorithm MD5 malfile.exe - Calculates the MD5 hash of a file on Windows leveraging powershell
+
+*Detect alternate data streams*
+1) C:\> DIR /r = look for alternate data streams
+2) PS :> Get-Item * -Stream * = look for alternate data streams with Powershell
+3) PS:> Get-ChildItem -recurse | ForEach { Get-Item $_.Filename -stream * } | Where stream -ne ':$DATA' = search all subdirectories for ADS
 
 
-Collect Metadata
+*Collect Metadata*
 exiftool
-
-nslookup
 
