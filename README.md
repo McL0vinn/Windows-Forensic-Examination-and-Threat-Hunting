@@ -15,12 +15,12 @@ Identify Suspicious Processes
 
 Wmic is even more powerful than Tasklist.
 
-C:\> wmic process list brief = brief list of the currently running processes
-C:\> wmic process list full = full list of the currently running processes
-C:\> wmic process get Name,Commandline,Description,ProcessID,ParentProcessID = specify only which fields you want to grab
-C:\> wmic process where processid=600 list full = full info of the process running with pid=600
-C:\> wmic process where Name=Teams.exe get ProcessID,ParentProcessID = full list of the process running with Name=teams.exe but return only the Pid and Ppid values
-C:\> wmic process where ProcessID=555
+1) C:\> wmic process list brief = brief list of the currently running processes
+2) C:\> wmic process list full = full list of the currently running processes
+3) C:\> wmic process get Name,Commandline,Description,ProcessID,ParentProcessID = specify only which fields you want to grab
+4) C:\> wmic process where processid=600 list full = full info of the process running with pid=600
+5) C:\> wmic process where Name=Teams.exe get ProcessID,ParentProcessID = full list of the process running with Name=teams.exe but return only the Pid and Ppid values
+6) C:\> wmic process where ProcessID=555
 
 Watch out for:
 1) Is this a new or unrecognized process? ( ideally you would want to cross reference your findings with a baseline image -if you have. It will make the whole task of identifying what stands out from "normal activity" easier)
