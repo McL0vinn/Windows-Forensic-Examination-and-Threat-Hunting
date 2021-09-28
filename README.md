@@ -1,17 +1,17 @@
 # Windows Forensic Examination and Threat Hunting
 
 Identify Suspicious Processes
--------------------------------
+----------------------------------------------------------------------------
 
-C:\> taskmgr.exe = invokes the Task Manager GUI.
-C:\> tasklist = Displays a list of currently running processes on the local computer or on a remote computer.
-C:\> tasklist /v = Displays verbose task information in the output. ( PID , memory usage status, User name)
-C:\> tasklist /m = Lists all tasks with PID and DLL modules loaded that match the given pattern name. If the module name is not specified, this option displays all modules loaded by each task.
-C:\> tasklist /fi = Specifies the types of processes to include in or exclude from the query.examples below
-C:\> tasklist /v /fi "pid eq 555"
-C:\> tasklist /m /fi "pid eq 555"
-C:\> Tasklist /v | findstr Teams.exe
-C:\> Tasklist /m | findstr Teams.exe
+1) C:\> taskmgr.exe = invokes the Task Manager GUI.
+2) C:\> tasklist = Displays a list of currently running processes on the local computer or on a remote computer.
+3) C:\> tasklist /v = Displays verbose task information in the output. ( PID , memory usage status, User name)
+4) C:\> tasklist /m = Lists all tasks with PID and DLL modules loaded that match the given pattern name. If the module name is not specified, this option displays all modules loaded by each task.
+5) C:\> tasklist /fi = Specifies the types of processes to include in or exclude from the query.examples below
+6) C:\> tasklist /v /fi "pid eq 555"
+7) C:\> tasklist /m /fi "pid eq 555"
+8) C:\> Tasklist /v | findstr Teams.exe
+9) C:\> Tasklist /m | findstr Teams.exe
 
 Wmic is even more powerful than Tasklist.
 
