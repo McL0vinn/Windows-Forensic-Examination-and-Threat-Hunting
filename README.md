@@ -181,34 +181,12 @@ Identifying Suspicious SMB activity
 
 Watch out for:
 
-1)The ability to drop individual SMB sessions (either inbound or outbound) can be useful because this can temporarily stop an attacker from using the SMB session.
+1) The ability to drop individual SMB sessions (either inbound or outbound) can be useful because this can temporarily stop an attacker from using the SMB session.
 This way you can buy some time or interrupt a data exfiltration in progress.
 2) Don't expose your TCP/UDP 135,136,137,138,139,445 ports to the internet. Shut them down or if there is a legit business purpose put them behind firewalls with ACLs enforcing access to authorized IPs only.
-3)most of them time SMB traffic is between a client and a Server.if you see client-to-client smb activity or excessive server-to-server smb activity without a valid business purpose,then that should be investigated.
+3) most of them time SMB traffic is between a client and a Server.if you see client-to-client smb activity or excessive server-to-server smb activity without a valid business purpose,then that should be investigated.
 
 
-
-
-
-Regshot = snapshot tool for Windows.Allows you to record a snapshot of the registry and optionally file system at two points in time and then highlights the differences between the two.
-Provides a high level summary of the changes,showing registry keys that were added/deleted/modified as wel as any files that were added/deleted/modified
-Super easy to run in 5 steps
-1) Start Regshot and configure the options.By default Regshot is not going to record file system.You can specifiy that if you want by checking the Scan dir box and stating the directory you are interested in ( C:\ for example)
-2) Once you are done with the configuration of the tool and you got everything ready take the first snapshot
-3) Run the malware
-4) Use Regshot to take a second snapshot
-5) Once finished , click on Compare and Regshot will give you back the results after a few minutes
-
-
-TaskManager
-DeepBlueCLI
-Procmon / Process Monitor = shows file system,registry,network and process activity in real-time.Ideal for detonating malicious files/scripts in a sandbox and see live the changes on your system
-Procexplorer / Process Explorer = gives in depth information about running processes
-Strings = extracts and displays bot ASCII and 16-bit little endian Unicode strings
-C:\> strings malfile.exe
-TCPView = maps listening TCP/UDP port back to owning processes
-SRUMdump
-FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then everything else follows)
 
 Miscellaneous
 ---------------------------------------------------------------------
@@ -243,3 +221,22 @@ Sysmon
 More info below
 https://github.com/sans-blue-team/DeepBlueCLI
 
+Regshot = snapshot tool for Windows.Allows you to record a snapshot of the registry and optionally file system at two points in time and then highlights the differences between the two.
+Provides a high level summary of the changes,showing registry keys that were added/deleted/modified as wel as any files that were added/deleted/modified
+Super easy to run in 5 steps
+1) Start Regshot and configure the options.By default Regshot is not going to record file system.You can specifiy that if you want by checking the Scan dir box and stating the directory you are interested in ( C:\ for example)
+2) Once you are done with the configuration of the tool and you got everything ready take the first snapshot
+3) Run the malware
+4) Use Regshot to take a second snapshot
+5) Once finished , click on Compare and Regshot will give you back the results after a few minutes
+
+
+TaskManager
+DeepBlueCLI
+Procmon / Process Monitor = shows file system,registry,network and process activity in real-time.Ideal for detonating malicious files/scripts in a sandbox and see live the changes on your system
+Procexplorer / Process Explorer = gives in depth information about running processes
+Strings = extracts and displays bot ASCII and 16-bit little endian Unicode strings
+C:\> strings malfile.exe
+TCPView = maps listening TCP/UDP port back to owning processes
+SRUMdump
+FTK Imager /Volexity / Volatility (Remember . Most volatile FIRST = RAM . then everything else follows)
