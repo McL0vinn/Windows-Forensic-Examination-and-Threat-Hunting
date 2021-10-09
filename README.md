@@ -179,6 +179,9 @@ Identifying Suspicious SMB activity
 1) C:\>net session = list the inbound sessions
 2) C:\>net session \\192.168.1.1 /del = drops the inbound SMB session
 
+
+*Alternatively you can run via cmd compmgmt.msc -> navigate to "Shared forlders" and there you can see Shares,Sessions and Open files*
+
 Watch out for:
 
 1) The ability to drop individual SMB sessions (either inbound or outbound) can be useful because this can temporarily stop an attacker from using the SMB session.
