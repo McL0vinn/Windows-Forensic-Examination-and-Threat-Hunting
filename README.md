@@ -35,13 +35,17 @@ Wmic is even more powerful than Tasklist.
 Watch out for:
 1) Is this a new or unrecognized process? ( ideally you would want to cross reference your findings with a baseline image -if you have. It will make the whole task of identifying what stands out from "normal activity" easier)
 2) Is the name of the Process random-looking ( e.g hJoIuG.exe or whatever)
-3) Is it running from a non-standard path ( e.g C:\Temp , C:\Downloads , C:\Music etc)
-4) Is the parent suspicious ( child process might be legit but parent process not)
-5) Is the Parent-Child relationship suspicious? ( e.g lsass.exe spawning a cmd.exe or IEX spawning a Powershell.exe etc)
-6) Is the process tied to suspicious activity? ( e.g a process communicating with well known malicious IP/URL/host/domain etc)
-7) Encoded in Base64 ?
-8) A process can be used for benign and malicious purposes at the same time. ( e.g PSEXEC ) 
-9) Suspicious does not necessarily mean Malicious.
+3) Does the new/suspicious process has a name that is similar to a legit process? e.g sCvhost instead of sVChost
+4) Is it unsigned? ( especially for microsoft since the sign pretty much everything)
+5) Does the process has a digital signature that doesn't match the identified publisher? ( stolen developers digital key)
+6) Is it running from a non-standard path ( e.g C:\Temp , C:\Downloads , C:\Music etc)
+7) Is the parent suspicious ( child process might be legit but parent process not)
+8) Is the Parent-Child relationship suspicious? ( e.g lsass.exe spawning a cmd.exe or IEX spawning a Powershell.exe etc)
+9) Is the process tied to suspicious activity? ( e.g a process communicating with well known malicious IP/URL/host/domain etc)
+10) Encoded in Base64 ?
+11) A process can be used for benign and malicious purposes at the same time. ( e.g PSEXEC ) 
+12) Suspicious does not necessarily mean Malicious.
+13) Most processes start by the SYSTEM,LOCAL SERVICE or NETWORK SERVICE accounts.keep that in mind.
 
 
 Identifying Suspicious Network Activity
