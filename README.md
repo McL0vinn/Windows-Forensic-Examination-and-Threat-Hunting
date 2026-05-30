@@ -105,9 +105,10 @@ These registry keys are responsible for executing programs when a system boots u
 Autostart folders associated with users.These programs are automatically invoked each time the given user logs on to the system and are sometimes altered by malware
 
 1) C:\> dir \s \b "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup = lists the contents of a user's autostart folder
-2) C:\> start msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
-3) C:\> wmic startup list full = displays autostart programs.
-4) Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
+2) C:\> dir \s \b C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp = for all users
+3) C:\> start msconfig.exe = spawns a small GUI that displays Startup selection, Boot location/options , startup items
+4) C:\> wmic startup list full = displays autostart programs.
+5) Right click on Tray bar --> Task Manager --> Startup = displays a GUI with autostart programs and info such as Name, Publisher, Status.
 
 
 
