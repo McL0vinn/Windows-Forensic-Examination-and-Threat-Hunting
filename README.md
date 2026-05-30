@@ -126,14 +126,26 @@ Identifying Suspicious Account Activity
 2) C:\> net user = displays a list of users
 3) C:\> net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
 
+# 1. Two methods to create the "Admin" user
+CMD C:\> net user "Admin" "p@ssw0rd!" /add
+PS  C:\> New-LocalUser "Admin" -Password [...]
 
+# 2. Two methods to add the user to Administrators 
+CMD C:\> net localgroup Administrators "Admin" /add
+PS  C:\> Add-LocalGroupMember "Administrators" -Member "Admin"
 
 Watch out for:
 
-1)
-2)
-3)
-4)
+1)Who created the account? Can the person confirm the account creation?
+2)What is the source IP and time of the creator's login? Is it expected?
+3)Which other suspicious events can you see in the creator's session?
+4) Account names that resembles service accounts/backup accounts etc which may indicate malicious actor trying to hide.
+5) The new account being added to priviledged groups?
+6) The new account getting its password reset?
+
+Win EventID = 4720 -> A user account was created
+Win EventID = 4732 -> A member was added to a security group
+Win EventID = 4724 -> An attempt to reset an account's password
 
 
 Identifying Suspicious Scheduled Tasks
