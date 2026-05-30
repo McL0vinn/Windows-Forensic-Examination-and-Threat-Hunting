@@ -121,7 +121,7 @@ Watch out for:
 
 Identifying Suspicious Account Activity
 --------------------------------------
-
+```
 1) c:\> lusrmgr.msc = spawns a GUI which can be used to check the users and groups defined on the machine
 2) C:\> net user = displays a list of users
 3) C:\> net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
@@ -147,7 +147,7 @@ Win EventID = 4720 -> A user account was created
 Win EventID = 4732 -> A member was added to a security group
 Win EventID = 4724 -> An attempt to reset an account's password
 
-
+```
 Identifying Suspicious Scheduled Tasks
 ------------------------------------
 
