@@ -126,14 +126,12 @@ Identifying Suspicious Account Activity
 2) C:\> net user = displays a list of users
 3) C:\> net localgroup administrators = shows who is in the group you specify ( in that case accounts in the administrators group)
 
-1. Two methods to create the "Admin" user
+A) Two methods to create the "Admin" user
 CMD C:\> net user "Admin" "p@ssw0rd!" /add
-
 PS  C:\> New-LocalUser "Admin" -Password [...]
 
-3. Two methods to add the user to Administrators 
+B) Two methods to add the user to Administrators 
 CMD C:\> net localgroup Administrators "Admin" /add
-
 PS  C:\> Add-LocalGroupMember "Administrators" -Member "Admin"
 
 Watch out for:
